@@ -1,24 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
+import Cards from './Components/card';
+import {Grid,Box, Center} from '@chakra-ui/react'
+import {useState,useEffect} from 'react'
+import axios from 'axios';
+import Navbar from './Components/navbar';
 
 function App() {
+  const [data,setData]=useState([])
+
+  useEffect(()=>{
+    axios.get(`https://run.mocky.io/v3/41cb1699-4257-4784-aae7-070916272db3`)
+    .then(res=>{console.log(res.data);setData(res.data)})
+    .catch(err=>{console.log(err)})
+  },[])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Box bgColor={"white"} fontFamily={"Okra, Helvetica, sans-serif"}>
+    <Center>
+    <Box color={"black"} w={"80%"}>
+        <Grid templateColumns='repeat(3, 1fr)' gap={6} className="App">
+          {
+            data.map((ele)=>{
+              return <Cards data={ele}/>
+            })
+          }
+        </Grid>
+    </Box>
+    </Center>
+    </Box>
   );
 }
 
