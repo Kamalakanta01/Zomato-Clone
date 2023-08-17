@@ -44,8 +44,17 @@ export default function Cards({ data }) {
             <Text fontSize="xl" fontWeight="semibold" mb="2">
             {data.name}
             </Text>
-            <Text fontSize="sm" color="gray.500" mb="2">
-            {data.ratings} Ratings
+            <Text
+              fontSize="sm"
+              color="white"
+              bg="green.500"
+              mb="2"
+              display="inline-block"
+              p="2"
+              borderRadius="md"
+              textAlign="center"
+            >
+              {data.ratings} ✰
             </Text>
         </Flex>
         <Flex justifyContent={"space-between"}>
