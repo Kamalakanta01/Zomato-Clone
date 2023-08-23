@@ -17,16 +17,23 @@ function App() {
     .then(res=>{console.log(res.data);setData(res.data)})
     .catch(err=>{console.log(err)})
   },[])
+
   return (
     <Box bgColor={"white"} fontFamily={"Okra, Helvetica, sans-serif"} w={"80%"} margin={"auto"}>
-      <TabNavigation nav={setNav}/>
-      <Filter/>
+      <Box mt={"2%"} ml={"-6%"}>
+        <TabNavigation nav={setNav}/>
+      </Box>
+      <Box ml={"-11%"} mt={"2%"}>
+        <Filter/>
+      </Box>
       <Center>
         {nav?
       <Box color={"black"}>
-        <Carousell/>
-        <TopBrands/>
-        <Text fontSize={"2rem"} mb={5}>Delivery Restaurants in Patna</Text>
+        <Box mt={"5%"} mb={"5%"}>
+          <Carousell/>
+          <TopBrands/>
+        </Box>
+        <Text fontSize={"2rem"} mb={5} ml={7}>Delivery Restaurants in Patna</Text>
           <Grid templateColumns='repeat(3, 1fr)' gap={6} className="App">
             {
               data.map((ele)=>{
