@@ -6,6 +6,7 @@ import axios from 'axios';
 import TabNavigation from './Components/navigation';
 import Filter from './Components/filter';
 import Carousell from './Components/carousel';
+import TopBrands from './Components/top-brands';
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
         {nav?
       <Box color={"black"}>
         <Carousell/>
+        <TopBrands/>
         <Text fontSize={"2rem"} mb={5}>Delivery Restaurants in Patna</Text>
           <Grid templateColumns='repeat(3, 1fr)' gap={6} className="App">
             {

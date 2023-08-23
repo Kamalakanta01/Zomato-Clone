@@ -1,72 +1,62 @@
 import React, { useState } from 'react';
 import { Button, Text } from '@chakra-ui/react';
-import {ChevronLeftIcon, ChevronRightIcon} from '@chakra-ui/icons'
+import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 
 const carouselItems = [
   // ... (your carousel items)
   {
-    imageSrc: "https://b.zmtcdn.com/data/o2_assets/d0bd7c9405ac87f6aa65e31fe55800941632716575.png",
+    imageSrc: "https://b.zmtcdn.com/data/brand_creatives/logos/77d5b489b0ea3773900191553512b17d_1605103915.png",
     alt: "1",
-    name: "Pizza"
+    name: "Harilal's"
   },
   {
-    imageSrc: "https://b.zmtcdn.com/data/dish_images/d5ab931c8c239271de45e1c159af94311634805744.png",
+    imageSrc: "https://b.zmtcdn.com/data/brand_creatives/logos/b33aaf8c14823c85b0470fdce138fa81_1617931389.png",
     alt: "2",
-    name: "Cake"
+    name: "Haldiram's"
   },
   {
-    imageSrc: "https://b.zmtcdn.com/data/dish_images/d19a31d42d5913ff129cafd7cec772f81639737697.png",
+    imageSrc: "https://b.zmtcdn.com/data/brand_creatives/logos/5caf38856d23347b351bb7abf97134d3_1521806923.png",
     alt: "3",
-    name: "Biriyani"
+    name: ""
   },
   {
-    imageSrc: "https://b.zmtcdn.com/data/o2_assets/52eb9796bb9bcf0eba64c643349e97211634401116.png",
+    imageSrc: "https://b.zmtcdn.com/data/brand_creatives/logos/144bce4c7101359f0c0b54b8fc761a6f_1648017785.png",
     alt: "4",
-    name: "Thali"
+    name: ""
   },
   {
-    imageSrc: "https://b.zmtcdn.com/data/dish_images/ccb7dc2ba2b054419f805da7f05704471634886169.png",
+    imageSrc: "https://b.zmtcdn.com/data/brand_creatives/logos/c505604a9a42be5e6d3644e4a28acd84_1678081788.png",
     alt: "5",
-    name: "Burger"
+    name: ""
   },
   {
-    imageSrc: "https://b.zmtcdn.com/data/o2_assets/e444ade83eb22360b6ca79e6e777955f1632716661.png",
+    imageSrc: "https://b.zmtcdn.com/data/brand_creatives/logos/1005fb0c9e31b63b7c3f9e825d62a3d8_1605103758.png",
     alt: "6",
-    name: "Fried Rice"
+    name: ""
   },
   {
-    imageSrc: "https://b.zmtcdn.com/data/o2_assets/8dc39742916ddc369ebeb91928391b931632716660.png",
+    imageSrc: "https://b.zmtcdn.com/data/brand_creatives/logos/466f8fc74274145f3b21795c3d21816d_1589433965.png",
     alt: "7",
-    name: "Dosa"
+    name: ""
   },
   {
-    imageSrc: "https://b.zmtcdn.com/data/o2_assets/019409fe8f838312214d9211be010ef31678798444.jpeg",
+    imageSrc: "https://b.zmtcdn.com/data/brand_creatives/logos/2f32014b8ff892ba75217e3ef050e1bd_1648017751.png",
     alt: "8",
-    name: "North Indian"
+    name: ""
   },
   {
-    imageSrc: "https://b.zmtcdn.com/data/dish_images/e44c42ff4b60b025225c8691ef9735b11635781903.png",
+    imageSrc: "https://b.zmtcdn.com/data/brand_creatives/logos/0c45494107cfd8e2d6e9bd855bfec678_1669019617.png",
     alt: "9",
-    name: "Paneer"
+    name: ""
   },
   {
-    imageSrc: "https://b.zmtcdn.com/data/dish_images/c2f22c42f7ba90d81440a88449f4e5891634806087.png",
-    alt : "10",
-    name: "Rolls"
-  },
-  {
-    imageSrc: "https://b.zmtcdn.com/data/o2_assets/e444ade83eb22360b6ca79e6e777955f1632716661.png",
-    alt : "11",
-    name: "Fried Rice"
-  },
-  {
-    imageSrc: "https://b.zmtcdn.com/data/o2_assets/c21624eac87ed1c8c87ef1ea52980ded1632716659.png",
-    alt : "12",
-    name: "Chowmein"
+    imageSrc: "https://b.zmtcdn.com/data/brand_creatives/logos/1dc9563533730bc3829922fa50c9814b_1654533773.png",
+    alt: "10",
+    name: ""
   }
 ];
 
-const MultiCarousel = () => {
+const TopBrands = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handlePrevClick = () => {
@@ -80,20 +70,19 @@ const MultiCarousel = () => {
   return (
     <div style={styles.pageContainer}>
       <div style={styles.carouselContainer}>
-        <Text fontSize={"2rem"} ml={'-65%'} mb={'5%'}>Inspiration for your first order</Text>
+        <Text fontSize={"2rem"} ml={'-77%'} mb={'5%'}>Top brands for you</Text>
         <div style={styles.carouselWrapper}>
           <div style={{ ...styles.carouselList, transform: `translateX(-${currentIndex * 16.66}%)` }}>
             {/* Loop through carouselItems and create carousel items */}
             {carouselItems.map((item, index) => (
               <div key={index} style={styles.carouselItem}>
                 <img src={item.imageSrc} alt={item.alt} style={styles.image} />
-                {/* <p>{item.name}</p> */}
               </div>
             ))}
           </div>
         </div>
         <div style={styles.buttonContainer}>
-          {currentIndex!==0 && <Button
+          {currentIndex !== 0 && <Button
             position="absolute"
             top="70%"
             left="7"
@@ -135,7 +124,6 @@ const styles = {
   pageContainer: {
     textAlign: 'center',
     padding: '2rem',
-    backgroundColor: "#f8f8f8"
   },
   // Styles for the carousel container
   carouselContainer: {
@@ -169,4 +157,4 @@ const styles = {
   },
 };
 
-export default MultiCarousel;
+export default TopBrands;
