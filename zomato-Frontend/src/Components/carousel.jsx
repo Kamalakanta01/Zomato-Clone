@@ -80,14 +80,16 @@ const MultiCarousel = () => {
   return (
     <div style={styles.pageContainer}>
       <div style={styles.carouselContainer}>
-        <Text fontSize={"2rem"} ml={'-65%'} mb={'5%'}>Inspiration for your first order</Text>
+        <Text fontSize={"2rem"} ml={'-77%'} mb={'5%'}>Top brands for you</Text>
         <div style={styles.carouselWrapper}>
           <div style={{ ...styles.carouselList, transform: `translateX(-${currentIndex * 16.66}%)` }}>
             {/* Loop through carouselItems and create carousel items */}
             {carouselItems.map((item, index) => (
               <div key={index} style={styles.carouselItem}>
-                <img src={item.imageSrc} alt={item.alt} style={styles.image} />
-                {/* <p>{item.name}</p> */}
+                <div style={styles.imageContainer}>
+                  <img src={item.imageSrc} alt={item.alt} style={styles.image} />
+                  <p style={styles.imageText}>{item.name}</p>
+                </div>
               </div>
             ))}
           </div>

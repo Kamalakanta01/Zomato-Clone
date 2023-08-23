@@ -17,42 +17,42 @@ const carouselItems = [
   {
     imageSrc: "https://b.zmtcdn.com/data/brand_creatives/logos/5caf38856d23347b351bb7abf97134d3_1521806923.png",
     alt: "3",
-    name: ""
+    name: "Domino's pizza"
   },
   {
     imageSrc: "https://b.zmtcdn.com/data/brand_creatives/logos/144bce4c7101359f0c0b54b8fc761a6f_1648017785.png",
     alt: "4",
-    name: ""
+    name: "La Pino's Pizza"
   },
   {
     imageSrc: "https://b.zmtcdn.com/data/brand_creatives/logos/c505604a9a42be5e6d3644e4a28acd84_1678081788.png",
     alt: "5",
-    name: ""
+    name: "Biriyani Mehel"
   },
   {
     imageSrc: "https://b.zmtcdn.com/data/brand_creatives/logos/1005fb0c9e31b63b7c3f9e825d62a3d8_1605103758.png",
     alt: "6",
-    name: ""
+    name: "Bikaner Sweets"
   },
   {
     imageSrc: "https://b.zmtcdn.com/data/brand_creatives/logos/466f8fc74274145f3b21795c3d21816d_1589433965.png",
     alt: "7",
-    name: ""
+    name: "KFC"
   },
   {
     imageSrc: "https://b.zmtcdn.com/data/brand_creatives/logos/2f32014b8ff892ba75217e3ef050e1bd_1648017751.png",
     alt: "8",
-    name: ""
+    name: "Pizza Hut"
   },
   {
     imageSrc: "https://b.zmtcdn.com/data/brand_creatives/logos/0c45494107cfd8e2d6e9bd855bfec678_1669019617.png",
     alt: "9",
-    name: ""
+    name: "Biriyani By Kilo"
   },
   {
     imageSrc: "https://b.zmtcdn.com/data/brand_creatives/logos/1dc9563533730bc3829922fa50c9814b_1654533773.png",
     alt: "10",
-    name: ""
+    name: "Vhicago Pizza"
   }
 ];
 
@@ -76,7 +76,10 @@ const TopBrands = () => {
             {/* Loop through carouselItems and create carousel items */}
             {carouselItems.map((item, index) => (
               <div key={index} style={styles.carouselItem}>
-                <img src={item.imageSrc} alt={item.alt} style={styles.image} />
+                <div style={styles.imageContainer}>
+                  <img src={item.imageSrc} alt={item.alt} style={styles.image} />
+                  <p style={styles.imageText}>{item.name}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -154,6 +157,23 @@ const styles = {
     objectFit: 'cover',
     borderRadius: '50%',
     padding: '5%'
+  },
+  // Styles for the container that holds the image and text
+  imageContainer: {
+    // position: 'relative',
+  },
+
+  // Styles for the text displayed at the bottom of the image
+  imageText: {
+    // position: 'absolute',
+    // bottom: '5%',
+    // left: '50%',
+    // transform: 'translateX(-50%)',
+    // backgroundColor: 'rgba(255, 255, 255, 0.8)',
+    // padding: '5px 10px',
+    // borderRadius: '4px',
+    // fontSize: '12px',
+    // fontWeight: 'bold',
   },
 };
 
