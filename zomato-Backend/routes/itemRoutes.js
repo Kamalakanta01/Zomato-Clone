@@ -8,8 +8,16 @@ const itemRouter=express.Router()
 
 
 itemRouter.get("/",async(req,res)=>{
-   const items = await Restaurantmodel.find()
-   res.send({everyitem:items})
+    const {q}=req.query
+    if(q){
+        const keywordRegex = new RegExp(q, "i");
+        let items = await Restaurantmodel.find({ $or: [ { food: keywordRegex }, { name: keywordRegex } ] })
+        res.send({everyitem:items})
+    }else{
+        let items = await Restaurantmodel.find()
+        res.send({everyitem:items})
+
+     }
 })
 
 itemRouter.get("/personal",async(req,res)=>{
