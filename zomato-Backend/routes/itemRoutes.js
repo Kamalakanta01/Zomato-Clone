@@ -6,9 +6,9 @@ const {Restaurantmodel}=require("../models/Restaurantmodel")
 const itemRouter=express.Router()
 
 
-
 itemRouter.get("/",async(req,res)=>{
     const {q}=req.query
+    
     if(q){
         const keywordRegex = new RegExp(q, "i");
         let items = await Restaurantmodel.find({ $or: [ { food: keywordRegex }, { name: keywordRegex } ] })
@@ -19,6 +19,8 @@ itemRouter.get("/",async(req,res)=>{
 
      }
 })
+
+
 
 itemRouter.get("/personal",async(req,res)=>{
     const userID=req.userID
