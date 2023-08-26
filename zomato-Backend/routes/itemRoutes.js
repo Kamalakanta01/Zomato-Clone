@@ -7,16 +7,38 @@ const itemRouter=express.Router()
 
 
 itemRouter.get("/",async(req,res)=>{
-    const {q}=req.query
-    
-    if(q){
+    const {q,sort}=req.query
+    if(q&&sort){
+        const keywordRegex = new RegExp(q, "i");
+        if(sort===`rating`){
+            let items = await Restaurantmodel.find({ $or: [ { food: keywordRegex }, { name: keywordRegex } ] }).sort({rating:-1})
+            res.send({everyitem:items})
+        }else if(sort===`asc`){
+            let items = await Restaurantmodel.find({ $or: [ { food: keywordRegex }, { name: keywordRegex } ] }).sort({price:1})
+            res.send({everyitem:items})
+        }else if(sort===`desc`){
+            let items = await Restaurantmodel.find({ $or: [ { food: keywordRegex }, { name: keywordRegex } ] }).sort({price:-1})
+            res.send({everyitem:items})
+        }
+    }
+    else if(q){
         const keywordRegex = new RegExp(q, "i");
         let items = await Restaurantmodel.find({ $or: [ { food: keywordRegex }, { name: keywordRegex } ] })
         res.send({everyitem:items})
+    }else if(sort){
+        if(sort===`rating`){
+            let items = await Restaurantmodel.find().sort({rating:-1})
+            res.send({everyitem:items})
+        }else if(sort===`asc`){
+            let items = await Restaurantmodel.find().sort({price:1})
+            res.send({everyitem:items})
+        }else if(sort===`desc`){
+            let items = await Restaurantmodel.find().sort({price:-1})
+            res.send({everyitem:items})
+        }
     }else{
         let items = await Restaurantmodel.find()
         res.send({everyitem:items})
-
      }
 })
 
