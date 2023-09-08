@@ -80,9 +80,9 @@ const MultiCarousel = () => {
   return (
     <div style={styles.pageContainer}>
       <div style={styles.carouselContainer}>
-        <Text fontSize={"2rem"} ml={'-65%'} mb={'5%'}>Inspiration for your first order</Text>
+        <Text fontSize={"2rem"} ml={'-85%'} mb={'5%'}>Collections</Text>
         <div style={styles.carouselWrapper}>
-          <div style={{ ...styles.carouselList, transform: `translateX(-${currentIndex * 16.66}%)` }}>
+          <div style={{ ...styles.carouselList, transform: `translateX(-${currentIndex * 25}%)` }}>
             {/* Loop through carouselItems and create carousel items */}
             {carouselItems.map((item, index) => (
               <div key={index} style={styles.carouselItem}>
@@ -154,11 +154,11 @@ const styles = {
   // Styles for the list of carousel items
   carouselList: {
     display: 'flex',
-    width: `${carouselItems.length * 16.66}%`, /* Adjust to the total width of all items */
+    width: `${carouselItems.length * 25}%`, /* Adjust to the total width of all items */
   },
   // Styles for individual carousel items
   carouselItem: {
-    flex: '0 0 16.66%', /* Display 6 items at once */
+    flex: '0 0 25%', /* Display 6 items at once */
     transition: 'transform 0.3s ease-in-out',
   },
   // Styles for images within carousel items
@@ -166,7 +166,7 @@ const styles = {
     width: '100%',
     height: '100%',
     objectFit: 'cover',
-    borderRadius: '50%',
+    // borderRadius: '50%',
     padding: '5%'
   },
 };

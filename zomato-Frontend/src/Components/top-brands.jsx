@@ -87,7 +87,7 @@ const TopBrands = () => {
         <div style={styles.buttonContainer}>
           {currentIndex !== 0 && <Button
             position="absolute"
-            top="70%"
+            top="65%"
             left="7"
             transform="translate(-50%, -50%)"
             borderRadius="50%"
@@ -102,7 +102,7 @@ const TopBrands = () => {
           </Button>}
           {currentIndex !== carouselItems.length - 6 && <Button
             position="absolute"
-            top="70%"
+            top="65%"
             right="7"
             transform="translate(50%, -50%)"
             borderRadius="50%"
