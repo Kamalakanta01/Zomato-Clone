@@ -11,29 +11,29 @@ itemRouter.get("/",async(req,res)=>{
     if(q&&sort){
         const keywordRegex = new RegExp(q, "i");
         if(sort===`rating`){
-            let items = await Restaurantmodel.find({ $or: [ { food: keywordRegex }, { name: keywordRegex } ],rating: rating }).sort({rating:-1})
+            let items = await Restaurantmodel.find({ $or: [ { food: keywordRegex }, { name: keywordRegex } ],rating: { $gt: rating }  }).sort({rating:-1})
             res.send({everyitem:items})
         }else if(sort===`asc`){
-            let items = await Restaurantmodel.find({ $or: [ { food: keywordRegex }, { name: keywordRegex } ],rating: rating }).sort({price:1})
+            let items = await Restaurantmodel.find({ $or: [ { food: keywordRegex }, { name: keywordRegex } ],rating: { $gt: rating }  }).sort({price:1})
             res.send({everyitem:items})
         }else if(sort===`desc`){
-            let items = await Restaurantmodel.find({ $or: [ { food: keywordRegex }, { name: keywordRegex } ],rating: rating }).sort({price:-1})
+            let items = await Restaurantmodel.find({ $or: [ { food: keywordRegex }, { name: keywordRegex } ],rating: { $gt: rating }  }).sort({price:-1})
             res.send({everyitem:items})
         }
     }
     else if(q){
         const keywordRegex = new RegExp(q, "i");
-        let items = await Restaurantmodel.find({ $or: [ { food: keywordRegex }, { name: keywordRegex } ],rating: rating })
+        let items = await Restaurantmodel.find({ $or: [ { food: keywordRegex }, { name: keywordRegex } ],rating: { $gt: rating }  })
         res.send({everyitem:items})
     }else if(sort){
         if(sort===`rating`){
-            let items = await Restaurantmodel.find({rating: rating}).sort({rating:-1})
+            let items = await Restaurantmodel.find({rating: { $gt: rating } }).sort({rating:-1})
             res.send({everyitem:items})
         }else if(sort===`asc`){
-            let items = await Restaurantmodel.find({rating: rating}).sort({price:1})
+            let items = await Restaurantmodel.find({rating: { $gt: rating } }).sort({price:1})
             res.send({everyitem:items})
         }else if(sort===`desc`){
-            let items = await Restaurantmodel.find({rating: rating}).sort({price:-1})
+            let items = await Restaurantmodel.find({rating: { $gt: rating } }).sort({price:-1})
             res.send({everyitem:items})
         }
     }else{
